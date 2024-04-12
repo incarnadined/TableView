@@ -108,7 +108,7 @@ public class VisibilityHandler {
 
         if (mHideColumnList.get(column) == null) {
             // add column the list
-            mHideColumnList.put(column, getColumnValueFromPosition(column));
+            mHideColumnList.put(column, getColumnValueFromPosition(viewColumn));
 
             // remove row model from adapter
             mTableView.getAdapter().removeColumn(viewColumn);

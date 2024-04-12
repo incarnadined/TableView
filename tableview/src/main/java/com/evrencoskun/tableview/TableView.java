@@ -548,7 +548,7 @@ public class TableView extends FrameLayout implements ITableView {
         }
              
         mIsSortable = true;
-        mColumnSortHandler.sort(columnPosition - smallerHiddenColumns, sortState);
+        mColumnSortHandler.sort(columnPosition, sortState);
         
         for (Integer col : hiddenColumns) {
             hideColumn(i);

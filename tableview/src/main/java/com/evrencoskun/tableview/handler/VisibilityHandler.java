@@ -57,7 +57,7 @@ public class VisibilityHandler {
 
         if (mHideRowList.get(row) == null) {
             // add row the list
-            mHideRowList.put(row, getRowValueFromPosition(viewRow));
+            mHideRowList.put(row, getRowValueFromPosition(row, viewRow));
 
             // remove row model from adapter
             mTableView.getAdapter().removeRow(viewRow);
@@ -108,7 +108,7 @@ public class VisibilityHandler {
 
         if (mHideColumnList.get(column) == null) {
             // add column the list
-            mHideColumnList.put(column, getColumnValueFromPosition(viewColumn));
+            mHideColumnList.put(column, getColumnValueFromPosition(column, viewColumn));
 
             // remove row model from adapter
             mTableView.getAdapter().removeColumn(viewColumn);
@@ -240,18 +240,18 @@ public class VisibilityHandler {
     }
 
     @NonNull
-    private Row getRowValueFromPosition(int row) {
+    private Row getRowValueFromPosition(int row, int newRow) {
         AbstractTableAdapter adapter = mTableView.getAdapter();
-        Object rowHeaderModel = adapter.getRowHeaderItem(row);
+        Object rowHeaderModel = adapter.getRowHeaderItem(newRow);
         List<Object> cellModelList = adapter.getCellRowItems(row);
 
         return new Row(row, rowHeaderModel, cellModelList);
     }
 
     @NonNull
-    private Column getColumnValueFromPosition(int column) {
+    private Column getColumnValueFromPosition(int column, int newColumn) {
         AbstractTableAdapter adapter = mTableView.getAdapter();
-        Object columnHeaderModel = adapter.getColumnHeaderItem(column);
+        Object columnHeaderModel = adapter.getColumnHeaderItem(newColumn);
         List<Object> cellModelList = adapter.getCellColumnItems(column);
 
         return new Column(column, columnHeaderModel, cellModelList);

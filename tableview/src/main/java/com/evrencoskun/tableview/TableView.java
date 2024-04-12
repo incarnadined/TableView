@@ -64,6 +64,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import java.util.ArrayList;
+
 /**
  * Created by evrencoskun on 11/06/2017.
  */
@@ -536,14 +538,21 @@ public class TableView extends FrameLayout implements ITableView {
 
     @Override
     public void sortColumn(int columnPosition, @NonNull SortState sortState) {
-        int smallerHiddenColumns = 0;
+        
+        ArrayList<Integer> hiddenColumns = new ArrayList<>();
         for (int i = 0; i < columnPosition; i++) {
-            if (!isColumnVisible(i))
-                smallerHiddenColumns++;
+            if (!isColumnVisible(i)) {
+                hiddenColumns.add(i);
+                showColumn(i);
+            }
         }
              
         mIsSortable = true;
         mColumnSortHandler.sort(columnPosition - smallerHiddenColumns, sortState);
+        
+        for (Integer col : hiddenColumns) {
+            hideColumn(i);
+        }
     }
 
     @Override

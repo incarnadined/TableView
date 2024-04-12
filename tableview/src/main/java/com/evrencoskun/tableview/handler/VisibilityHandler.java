@@ -57,7 +57,7 @@ public class VisibilityHandler {
 
         if (mHideRowList.get(row) == null) {
             // add row the list
-            mHideRowList.put(row, getRowValueFromPosition(row));
+            mHideRowList.put(row, getRowValueFromPosition(viewRow));
 
             // remove row model from adapter
             mTableView.getAdapter().removeRow(viewRow);

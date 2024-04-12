@@ -537,22 +537,9 @@ public class TableView extends FrameLayout implements ITableView {
     }
 
     @Override
-    public void sortColumn(int columnPosition, @NonNull SortState sortState) {
-        
-        ArrayList<Integer> hiddenColumns = new ArrayList<>();
-        for (int i = 0; i < columnPosition; i++) {
-            if (!isColumnVisible(i)) {
-                hiddenColumns.add(i);
-                showColumn(i);
-            }
-        }
-             
+    public void sortColumn(int columnPosition, @NonNull SortState sortState) { 
         mIsSortable = true;
         mColumnSortHandler.sort(columnPosition, sortState);
-        
-        for (Integer col : hiddenColumns) {
-            hideColumn(col);
-        }
     }
 
     @Override

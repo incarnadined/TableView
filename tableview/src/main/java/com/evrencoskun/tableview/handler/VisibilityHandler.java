@@ -242,8 +242,8 @@ public class VisibilityHandler {
     @NonNull
     private Row getRowValueFromPosition(int row, int newRow) {
         AbstractTableAdapter adapter = mTableView.getAdapter();
-        Object rowHeaderModel = adapter.getRowHeaderItem(newRow);
-        List<Object> cellModelList = adapter.getCellRowItems(row);
+        Object rowHeaderModel = adapter.getRowHeaderItem(row);
+        List<Object> cellModelList = adapter.getCellRowItems(newRow);
 
         return new Row(row, rowHeaderModel, cellModelList);
     }
@@ -251,8 +251,8 @@ public class VisibilityHandler {
     @NonNull
     private Column getColumnValueFromPosition(int column, int newColumn) {
         AbstractTableAdapter adapter = mTableView.getAdapter();
-        Object columnHeaderModel = adapter.getColumnHeaderItem(newColumn);
-        List<Object> cellModelList = adapter.getCellColumnItems(column);
+        Object columnHeaderModel = adapter.getColumnHeaderItem(column);
+        List<Object> cellModelList = adapter.getCellColumnItems(newColumn);
 
         return new Column(column, columnHeaderModel, cellModelList);
     }

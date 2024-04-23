@@ -413,6 +413,9 @@ public class SelectionHandler {
     }
 
     public void clearSelection() {
+        mPreviousSelectedViewHolder = null;
+        mSelectedColumnPosition = UNSELECTED_POSITION;
+        mSelectedRowPosition = UNSELECTED_POSITION;
         unselectedRowHeader();
         unselectedCellView();
         unselectedColumnHeader();

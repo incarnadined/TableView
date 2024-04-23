@@ -341,6 +341,9 @@ public class SelectionHandler {
             selectionState = SelectionState.SELECTED;
         }
 
+        // if there are no children, getting past this will crash us as we try to look up the -1th child
+        if (mCellLayoutManager.getChildCount() == 0)
+            return;
 
         // Get visible Cell ViewHolders by Column Position
         for (int i = mCellLayoutManager.findFirstVisibleItemPosition(); i < mCellLayoutManager
